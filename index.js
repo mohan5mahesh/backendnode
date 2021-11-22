@@ -7,7 +7,6 @@ app.use(express.json()); //middleware all the body parsed has json
 
 //connection to DB in local
 const MONGO_URL = "mongodb://localhost";
-// const MONGO_URL = "mongodb+srv://mohan:mohan123@cluster0.c2ecx.mongodb.net";
 async function createConnection() {
   const client = new MongoClient(MONGO_URL);
   await client.connect();
