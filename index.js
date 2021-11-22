@@ -1,12 +1,13 @@
 import express from "express"; //default export
 // const express = require("express");
 import { MongoClient } from "mongodb"; //named export
+import dotenv from "dotenv";
 const app = express();
 const PORT = 5000;
 app.use(express.json()); //middleware all the body parsed has json
-
+dotenv.config();
 //connection to DB in local
-const MONGO_URL = "mongodb://localhost";
+const MONGO_URL = process.env.MONGO_URL;
 async function createConnection() {
   const client = new MongoClient(MONGO_URL);
   await client.connect();
